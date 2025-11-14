@@ -1,4 +1,4 @@
-![Lumira Logo](https://raw.githubusercontent.com/oopsite/vervain/main/assets/lumira.png)
+<img src="https://raw.githubusercontent.com/oopsite/vervain/main/assets/lumira.png" width="400" />
 
 Welcome to Lumira software. Here we are creating new software to help you become the developer that you wish you were. Lumira was founded in 2025 by user [@oopsite](https://github.com/oopsite) and has since been developing and maintaining the Vervain programming language developed in the [Rust language](https://rust-lang.org).
 
