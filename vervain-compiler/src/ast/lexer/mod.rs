@@ -31,7 +31,7 @@ pub enum Token {
     For,
     #[token("return")]
     Return,
-    #[token("bre")]
+    #[token("break")]
     Break,
     #[token("end")]
     Eot,
@@ -83,7 +83,11 @@ pub enum Token {
     Comma,
     #[token(";")]
     Semicolon,
-
+    #[token(":")]
+    TypeColon,
+    #[token("::")]
+    TypeAssertation,
+    
     // Anything else.
     #[error]
     Error,
