@@ -33,8 +33,14 @@ pub enum Token {
     Return,
     #[token("break")]
     Break,
+    #[token("lambda")]
+    LambdaKeyword,
+    #[token("private")]
+    Private,
+    #[token("public")]
+    Public,
     #[token("end")]
-    Eot,
+    End,
 
     // Literals
     #[token("~~")]
@@ -43,12 +49,14 @@ pub enum Token {
     DoubleString,
     #[regex(r"[0-9]+(\.[0-9]+)?")]
     Number,
-
-    // Operators
+    #[regex(r"[a-zA-Z_][a-zA-Z0-9_]*")]
+    Identifier,
     #[token("true")]
     True,
     #[token("false")]
     False,
+
+    // Operators
     #[token("+")]
     Add,
     #[token("-")]
@@ -57,6 +65,10 @@ pub enum Token {
     Multiply,
     #[token("/")]
     Divide,
+    #[token("%")]
+    Modulo,
+    #[token("**")]
+    Power,
     #[token("+=")]
     AddResult,
     #[token("-=")]
@@ -65,6 +77,8 @@ pub enum Token {
     MultiplyResult,
     #[token("/=")]
     DivideResult,
+    #[token("%=")]
+    ModuloResult,
     #[token(">=")]
     GreaterEqual,
     #[token("<=")]
@@ -77,6 +91,22 @@ pub enum Token {
     Equal,
     #[token("~=")]
     NotEqual,
+    #[token("!")]
+    Not,
+    #[token("&&")]
+    And,
+    #[token("||")]
+    Or,
+    #[token("λ")]
+    LambdaSymbol,
+    #[token("Σ")]
+    Sumate,
+    #[token("√")]
+    SquareRoot,
+    #[token("!")]
+    Factorial,
+    #[token("@")]
+    At,
 
     // Separators
     #[token(",")]
@@ -86,9 +116,21 @@ pub enum Token {
     #[token(":")]
     TypeColon,
     #[token("::")]
-    TypeAssertation,
-    
-    // Anything else.
+    TypeAssertion,
+    #[token("(")]
+    LeftParen,
+    #[token(")")]
+    RightParen,
+    #[token("[")]
+    LeftBracket,
+    #[token("]")]
+    RightBracket,
+    #[token("{")]
+    LeftBrace,
+    #[token("}")]
+    RightBrace,
+
+    // Anything else
     #[error]
     Error,
 }
