@@ -2,10 +2,15 @@ use vervainc::ast::lexer;
 
 fn main() {
     let code = r#"
-        set x = 10
-        if x >= 5
-            print("hello")
-        end
+        import io {
+            print
+        }
+
+        @private func print_hello() {
+            print("Hello, world!")
+        }
+
+        print_hello()
     "#;
 
     for tok in lexer::lex(&code) {

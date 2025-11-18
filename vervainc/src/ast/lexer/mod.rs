@@ -57,6 +57,12 @@ pub enum Token {
     #[token("false")]
     False,
 
+    // Types
+    #[token("Number")]
+    NumberType,
+    #[token("String")]
+    StringType,
+
     // Operators
     #[token("+")]
     Add,
@@ -136,4 +142,44 @@ pub fn lex(source: &str) -> Vec<Token> {
     Token::lexer(source)
         .filter_map(|res| res.ok())
         .collect()
+}
+
+#[cfg(test)]
+mod test {
+    use crate::ast::lexer::{
+        lex, 
+        Token
+    };
+    #[test]
+    fn attempt_type_asserted_var() {
+        let src = "set thing = 10 :: Number";
+        assert_eq!(
+            lex(&src),
+            vec![
+                Token::Set,
+                Token::Identifier("thing".to_string()),
+                Token::Equal,
+                Token::Number(10),
+                Token::TypeAssertion,
+                Token::NumberType
+            ])
+    }
+    #[test]
+    fn attempt_operation() {
+        let src = "2 + 2";
+        assert_eq!(
+            lex(&src),
+            vec![
+                Token::Number(2),
+                Token::Add,
+                Token::Number(2),
+                ])
+    }
+    #[test]
+    fn attempt_set() {
+        let src = "set";
+        assert_eq!(
+            lex(&src),
+            vec![Token::Set,])
+    }
 }

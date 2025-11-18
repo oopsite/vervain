@@ -12,7 +12,6 @@
 // COPYRIGHT EST. 2025
 // WRITTEN BY @NVTTLES
 
-// use crate::ast::structure;
-// use crate::ast::lexer;
+use crate::ast::structure;
+use crate::ast::lexer;
 
-// use std::collections::HashMap;
